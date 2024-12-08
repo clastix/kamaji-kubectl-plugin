@@ -1,0 +1,63 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: kamaji
+spec:
+  version: {{ .TagName }}
+  homepage: https://github.com/clastix/kamaji-kubectl-plugin
+  shortDescription: Manage your Kamaji Tenant Control Planes with ease.
+  description: |
+    This plugin allows to perform some actions on the Kamaji resources,
+    such as Tenant Control Planes.
+  caveats: |
+    * All the operations dealing with the Managed Cluster are respecting the kubeconfig flags configured in your terminal.
+      e.g.: if you want to override the Namespace specify -n/--namespace explicitly.
+  platforms:
+    - selector:
+        matchLabels:
+          os: darwin
+          arch: arm64
+      {{addURIAndSha "https://github.com/clastix/kamaji-kubectl-plugin/releases/download/{{ .TagName }}/kubectl-kamaji_Darwin_arm64.tar.gz" .TagName }}
+      bin: kubectl-kamaji
+    - selector:
+        matchLabels:
+          os: darwin
+          arch: amd64
+      {{addURIAndSha "https://github.com/clastix/kamaji-kubectl-plugin/releases/download/{{ .TagName }}/kubectl-kamaji_Darwin_x86_64.tar.gz" .TagName }}
+      bin: kubectl-kamaji
+    - selector:
+        matchLabels:
+          os: linux
+          arch: arm64
+      {{addURIAndSha "https://github.com/clastix/kamaji-kubectl-plugin/releases/download/{{ .TagName }}/kubectl-kamaji_Linux_arm64.tar.gz" .TagName }}
+      bin: kubectl-kamaji
+    - selector:
+        matchLabels:
+          os: linux
+          arch: arm
+      {{addURIAndSha "https://github.com/clastix/kamaji-kubectl-plugin/releases/download/{{ .TagName }}/kubectl-kamaji_Linux_armv6.tar.gz" .TagName }}
+      bin: kubectl-kamaji
+    - selector:
+        matchLabels:
+          os: linux
+          arch: amd64
+      {{addURIAndSha "https://github.com/clastix/kamaji-kubectl-plugin/releases/download/{{ .TagName }}/kubectl-kamaji_Linux_x86_64.tar.gz" .TagName }}
+      bin: kubectl-kamaji
+    - selector:
+        matchLabels:
+          os: windows
+          arch: arm64
+      {{addURIAndSha "https://github.com/clastix/kamaji-kubectl-plugin/releases/download/{{ .TagName }}/kubectl-kamaji_Windows_arm64.zip" .TagName }}
+      bin: kubectl-kamaji
+    - selector:
+        matchLabels:
+          os: windows
+          arch: arm
+      {{addURIAndSha "https://github.com/clastix/kamaji-kubectl-plugin/releases/download/{{ .TagName }}/kubectl-kamaji_Windows_armv6.zip" .TagName }}
+      bin: kubectl-kamaji
+    - selector:
+        matchLabels:
+          os: windows
+          arch: amd64
+      {{addURIAndSha "https://github.com/clastix/kamaji-kubectl-plugin/releases/download/{{ .TagName }}/kubectl-kamaji_Windows_x86_64.zip" .TagName }}
+      bin: kubectl-kamaji.exe
