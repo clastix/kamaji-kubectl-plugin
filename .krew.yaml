@@ -47,14 +47,8 @@ spec:
       matchLabels:
         os: windows
         arch: arm64
-    bin: kubectl-kamaji
+    bin: kubectl-kamaji.exe
     {{ addURIAndSha "https://github.com/clastix/kamaji-kubectl-plugin/releases/download/{{ .TagName }}/kubectl-kamaji_Windows_arm64.zip" .TagName | indent 4 }}
-  - selector:
-      matchLabels:
-        os: windows
-        arch: arm
-    bin: kubectl-kamaji
-    {{ addURIAndSha "https://github.com/clastix/kamaji-kubectl-plugin/releases/download/{{ .TagName }}/kubectl-kamaji_Windows_armv6.zip" .TagName | indent 4 }}
   - selector:
       matchLabels:
         os: windows
